@@ -1,358 +1,132 @@
-/* ==========================================
-   GLOBAL STYLES
-========================================== */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decode the Secret Message</title>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-body{
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    font-family:'Poppins',sans-serif;
+<body>
 
-    overflow-x:hidden;
+<div class="stars"></div>
+<div class="twinkling"></div>
+<div class="shooting-star"></div>
 
-    min-height:100vh;
+<div class="container">
 
-    color:white;
+    <h1>⚔️ Decode the Secret Message ⚔️</h1>
 
-    background:
-        radial-gradient(circle at top,#472d91 0%,#1b1b4f 30%,#070818 75%,#000000 100%);
+    <h2>House Stark Needs Your Help</h2>
 
-    display:flex;
+    <div class="story-card">
 
-    justify-content:center;
+        <p>
+            Jon Snow is a wanted criminal. House Snow is trying to capture him.
+            Jon's accomplice sends a secret message to him, which House Stark
+            intercepted but is unable to decode.
+        </p>
 
-    align-items:center;
+        <p>
+            Every letter in the hidden message has been shifted forward in the
+            alphabet by a secret number.
+        </p>
 
-    position:relative;
+        <p>
+            Your task is to decode the message and discover Jon Snow's secret
+            hideout before House Snow does.
+        </p>
 
-}
+    </div>
 
+    <div class="button-group">
 
-/* ==========================================
-      ANIMATED STAR FIELD
-========================================== */
+        <button id="showCipher">
+            View Encoded Message
+        </button>
 
-.stars,
-.twinkling{
+        <button id="showHint">
+            Hint
+        </button>
 
-    position:fixed;
+    </div>
 
-    top:0;
-    left:0;
+    <div id="cipherBox" class="cipher-box hidden">
 
-    width:100%;
-    height:100%;
+        <h3>Encoded Message</h3>
 
-    pointer-events:none;
+        <p id="cipherText">
+            (Loading...)
+        </p>
 
-}
+    </div>
 
-.stars{
+    <div id="hintBox" class="hint-box hidden">
 
-    background-image:
+        <strong>Hint</strong>
 
-    radial-gradient(white 1px,transparent 1px),
-    radial-gradient(#cfcfff 1px,transparent 1px),
-    radial-gradient(#8fdcff 1px,transparent 1px);
+        <p>
+            The number of letters in the first word is the number of letters
+            every character has been moved forward in the alphabet.
+        </p>
 
-    background-size:
-    140px 140px,
-    180px 180px,
-    220px 220px;
+    </div>
 
-    background-position:
-    0 0,
-    60px 90px,
-    100px 40px;
+    <div class="answer-section">
 
-    opacity:.9;
+        <input
+            id="answerInput"
+            type="text"
+            placeholder="Enter Jon Snow's hideout">
 
-}
+        <button id="submitAnswer">
+            Decode
+        </button>
 
-.twinkling{
+    </div>
 
-    animation:twinkle 6s infinite alternate;
+    <div id="result"></div>
 
-}
+</div>
 
-@keyframes twinkle{
+<div id="endingScene" class="ending hidden">
 
-    from{
+    <div class="moon"></div>
 
-        opacity:.4;
+    <div class="aurora"></div>
 
-    }
+    <div class="ocean"></div>
 
-    to{
+    <div class="waves"></div>
 
-        opacity:1;
+    <div class="particles"></div>
 
-    }
+    <div class="ending-content">
 
-}
+        <h1>🎉 Mission Accomplished 🎉</h1>
 
-/* ==========================================
-       SHOOTING STAR
-========================================== */
+        <h2>
+            Jon Snow's hideout is...
+        </h2>
 
-body::before{
+        <h1 class="location">
+            A Beach Under A Starry Sky
+        </h1>
 
-    content:"";
+        <p>
+            House Stark successfully decoded the intercepted message.
+        </p>
 
-    position:fixed;
+    </div>
 
-    width:3px;
-    height:3px;
+</div>
 
-    border-radius:50%;
+<script src="script.js"></script>
 
-    background:white;
-
-    top:-30px;
-    left:-30px;
-
-    box-shadow:
-    0 0 15px white,
-    0 0 35px #7dd3fc;
-
-    animation:shootingStar 9s linear infinite;
-
-}
-
-@keyframes shootingStar{
-
-    0%{
-
-        transform:
-        translate(-150px,-100px);
-
-        opacity:0;
-
-    }
-
-    10%{
-
-        opacity:1;
-
-    }
-
-    60%{
-
-        transform:
-        translate(1500px,700px);
-
-        opacity:1;
-
-    }
-
-    100%{
-
-        transform:
-        translate(1700px,900px);
-
-        opacity:0;
-
-    }
-
-}
-
-
-/* ==========================================
-       MAIN CONTAINER
-========================================== */
-
-.container{
-
-    width:90%;
-
-    max-width:900px;
-
-    padding:40px;
-
-    margin:40px;
-
-    border-radius:25px;
-
-    backdrop-filter:blur(15px);
-
-    background:rgba(18,20,45,.55);
-
-    border:1px solid rgba(255,255,255,.15);
-
-    box-shadow:
-
-    0 0 30px rgba(124,58,237,.35),
-
-    0 0 70px rgba(37,99,235,.18);
-
-    z-index:10;
-
-}
-
-
-/* ==========================================
-        HEADINGS
-========================================== */
-
-h1{
-
-    font-family:'Cinzel',serif;
-
-    text-align:center;
-
-    margin-bottom:25px;
-
-    color:#d8b4fe;
-
-    font-size:2.5rem;
-
-    text-shadow:
-
-    0 0 10px #7c3aed,
-
-    0 0 25px #2563eb;
-
-}
-
-h2{
-
-    font-family:'Cinzel',serif;
-
-    margin-bottom:15px;
-
-    color:#c4b5fd;
-
-}
-
-
-/* ==========================================
-        STORY CARD
-========================================== */
-
-.story-card{
-
-    background:rgba(255,255,255,.06);
-
-    border-radius:20px;
-
-    padding:30px;
-
-    line-height:1.8;
-
-    margin-bottom:30px;
-
-    border:1px solid rgba(255,255,255,.08);
-
-}
-
-.story-card p{
-
-    margin-bottom:15px;
-
-    color:#ececec;
-
-}
-
-.mission{
-
-    color:#8fdcff;
-
-    font-weight:bold;
-
-}
-
-
-/* ==========================================
-       BUTTONS
-========================================== */
-
-.button-group{
-
-    text-align:center;
-
-    margin-bottom:25px;
-
-}
-
-button{
-
-    padding:14px 34px;
-
-    border:none;
-
-    border-radius:40px;
-
-    cursor:pointer;
-
-    font-size:16px;
-
-    color:white;
-
-    background:
-
-    linear-gradient(
-    135deg,
-    #7c3aed,
-    #2563eb);
-
-    transition:.35s;
-
-    box-shadow:
-
-    0 0 15px rgba(124,58,237,.5);
-
-}
-
-button:hover{
-
-    transform:
-
-    translateY(-3px)
-    scale(1.05);
-
-    box-shadow:
-
-    0 0 30px #8b5cf6,
-
-    0 0 50px #3b82f6;
-
-}
-
-
-/* ==========================================
-      CIPHER BOX
-========================================== */
-
-.cipher-box{
-
-    margin-top:30px;
-
-    margin-bottom:30px;
-
-    padding:25px;
-
-    text-align:center;
-
-    border-radius:20px;
-
-    background:rgba(255,255,255,.05);
-
-}
-
-#cipherText{
-
-    font-size:30px;
-
-    letter-spacing:5px;
-
-    color:#67e8f9;
-
-    margin-top:20px;
-
-    word-break:break-word;
-
-}
+</body>
+</html>
