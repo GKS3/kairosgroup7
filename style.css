@@ -828,3 +828,692 @@ button:hover{
 
 }
 }
+/* ===========================
+   BACKGROUND
+=========================== */
+
+body{
+    margin:0;
+    padding:0;
+    overflow-x:hidden;
+    font-family:'Poppins',sans-serif;
+    background:
+    linear-gradient(to bottom,#020111,#090A28,#1a1446,#2d1b69);
+    color:white;
+}
+
+/* ===========================
+   STARS
+=========================== */
+
+.stars{
+    position:fixed;
+    width:100%;
+    height:100%;
+    left:0;
+    top:0;
+    background-image:
+    radial-gradient(white 1px,transparent 1px),
+    radial-gradient(#8fd3ff 1px,transparent 1px),
+    radial-gradient(#b794ff 1px,transparent 1px);
+
+    background-size:
+    180px 180px,
+    250px 250px,
+    320px 320px;
+
+    animation:twinkle 8s linear infinite;
+    z-index:-5;
+}
+
+@keyframes twinkle{
+
+    0%{
+
+        opacity:.6;
+
+    }
+
+    50%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        opacity:.6;
+
+    }
+
+}
+
+/* ===========================
+   SHOOTING STAR
+=========================== */
+
+.shooting-star{
+
+    position:fixed;
+
+    width:3px;
+    height:3px;
+
+    background:white;
+
+    border-radius:50%;
+
+    box-shadow:
+
+    0 0 10px white,
+    0 0 20px cyan,
+    0 0 35px cyan;
+
+    animation:shoot 7s linear infinite;
+
+    top:-50px;
+    left:-150px;
+
+    z-index:-3;
+
+}
+
+@keyframes shoot{
+
+    0%{
+
+        transform:
+        translate(0,0);
+
+        opacity:0;
+
+    }
+
+    8%{
+
+        opacity:1;
+
+    }
+
+    50%{
+
+        transform:
+        translate(1700px,800px);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:
+        translate(2200px,1000px);
+
+        opacity:0;
+
+    }
+
+}
+
+/* ===========================
+   CONTAINER
+=========================== */
+
+.container{
+
+    width:85%;
+
+    max-width:950px;
+
+    margin:60px auto;
+
+    padding:40px;
+
+    background:rgba(15,15,40,.55);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:25px;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    box-shadow:
+
+    0 0 30px rgba(124,58,237,.35);
+
+}
+
+/* ===========================
+   TITLES
+=========================== */
+
+h1{
+
+    font-family:'Cinzel',serif;
+
+    text-align:center;
+
+    color:#d8b4fe;
+
+    text-shadow:
+
+    0 0 10px #7c3aed,
+    0 0 25px #2563eb;
+
+}
+
+h2,h3{
+
+    text-align:center;
+
+    color:#8fd3ff;
+
+}
+
+/* ===========================
+   STORY
+=========================== */
+
+.story-card{
+
+    background:rgba(255,255,255,.05);
+
+    padding:25px;
+
+    border-radius:20px;
+
+    line-height:1.9;
+
+    margin:30px 0;
+
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.button-group{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+button{
+
+    padding:15px 30px;
+
+    border:none;
+
+    border-radius:35px;
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #7c3aed,
+    #2563eb);
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    transform:
+    scale(1.05);
+
+    box-shadow:
+
+    0 0 25px #7c3aed,
+    0 0 40px #2563eb;
+
+}
+
+/* ===========================
+   CIPHER BOX
+=========================== */
+
+.cipher-box{
+
+    margin-top:35px;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.05);
+
+    text-align:center;
+
+}
+
+#cipherText{
+
+    font-size:28px;
+
+    letter-spacing:4px;
+
+    color:#67e8f9;
+
+    font-weight:bold;
+
+}
+
+/* ===========================
+   HINT
+=========================== */
+
+.hint-box{
+
+    margin-top:30px;
+
+    padding:20px;
+
+    border-left:5px solid #67e8f9;
+
+    background:rgba(255,255,255,.05);
+
+    border-radius:15px;
+
+}
+
+/* ===========================
+   INPUT
+=========================== */
+
+.answer-section{
+
+    margin-top:35px;
+
+    text-align:center;
+
+}
+
+input{
+
+    width:70%;
+
+    max-width:500px;
+
+    padding:16px;
+
+    border-radius:15px;
+
+    border:none;
+
+    outline:none;
+
+    font-size:17px;
+
+    margin-bottom:20px;
+
+}
+
+.hidden{
+
+    display:none;
+
+}
+
+#result{
+
+    margin-top:20px;
+
+    text-align:center;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+}
+/* ===========================
+   ENDING SCENE
+=========================== */
+
+.ending{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(to bottom,
+    #030512 0%,
+    #10143a 35%,
+    #1b2b6b 70%,
+    #081c34 100%);
+
+    z-index:9999;
+
+}
+
+/* ===========================
+   MOON
+=========================== */
+
+.moon{
+
+    position:absolute;
+
+    width:140px;
+    height:140px;
+
+    border-radius:50%;
+
+    background:#fff9d6;
+
+    top:70px;
+    right:90px;
+
+    box-shadow:
+
+    0 0 40px #ffffff,
+    0 0 80px #b8d7ff,
+    0 0 140px #8fd3ff;
+
+}
+
+/* ===========================
+   AURORA
+=========================== */
+
+.aurora{
+
+    position:absolute;
+
+    width:140%;
+    height:260px;
+
+    left:-20%;
+    top:0;
+
+    background:
+
+    linear-gradient(
+    90deg,
+    rgba(124,58,237,.18),
+    rgba(59,130,246,.25),
+    rgba(103,232,249,.18),
+    rgba(124,58,237,.18));
+
+    filter:blur(45px);
+
+    animation:auroraMove 8s ease-in-out infinite alternate;
+
+}
+
+@keyframes auroraMove{
+
+    from{
+
+        transform:translateX(-80px);
+
+    }
+
+    to{
+
+        transform:translateX(80px);
+
+    }
+
+}
+
+/* ===========================
+   OCEAN
+=========================== */
+
+.ocean{
+
+    position:absolute;
+
+    bottom:0;
+
+    width:100%;
+    height:35%;
+
+    background:
+
+    linear-gradient(
+    to bottom,
+    #144d7a,
+    #0c2f57,
+    #071b35);
+
+}
+
+/* ===========================
+   WAVES
+=========================== */
+
+.waves{
+
+    position:absolute;
+
+    bottom:30%;
+
+    width:220%;
+
+    height:60px;
+
+    background:
+
+    repeating-radial-gradient(
+    circle at 50% 100%,
+    rgba(255,255,255,.25) 0px,
+    rgba(255,255,255,.15) 10px,
+    transparent 25px);
+
+    animation:waveMove 8s linear infinite;
+
+}
+
+@keyframes waveMove{
+
+    from{
+
+        transform:translateX(0);
+
+    }
+
+    to{
+
+        transform:translateX(-50%);
+
+    }
+
+}
+
+/* ===========================
+   FLOATING PARTICLES
+=========================== */
+
+.particles{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+}
+
+.particles::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:4px;
+    height:4px;
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:
+
+    120px 80px white,
+    250px 170px #67e8f9,
+    480px 120px white,
+    650px 200px #d8b4fe,
+    860px 150px white,
+    1030px 240px #8fd3ff,
+    1200px 110px white,
+    1380px 260px #d8b4fe;
+
+    animation:floatStars 14s linear infinite;
+
+}
+
+@keyframes floatStars{
+
+    from{
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        transform:translateY(-40px);
+
+    }
+
+}
+
+/* ===========================
+   SUCCESS CARD
+=========================== */
+
+.ending-content{
+
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:80%;
+
+    max-width:750px;
+
+    padding:40px;
+
+    text-align:center;
+
+    border-radius:25px;
+
+    background:rgba(10,10,30,.45);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+
+    0 0 35px rgba(124,58,237,.45);
+
+    animation:fadeUp 1.5s ease;
+
+}
+
+.location{
+
+    color:#67e8f9;
+
+    text-shadow:
+
+    0 0 15px #67e8f9;
+
+    margin:20px 0;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:
+
+        translate(-50%,-30%);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+
+        translate(-50%,-50%);
+
+    }
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:768px){
+
+    .container{
+
+        width:95%;
+
+        padding:25px;
+
+    }
+
+    input{
+
+        width:95%;
+
+    }
+
+    .ending-content{
+
+        width:92%;
+
+        padding:25px;
+
+    }
+
+    .moon{
+
+        width:90px;
+        height:90px;
+
+        right:30px;
+        top:40px;
+
+    }
+
+    h1{
+
+        font-size:2rem;
+
+    }
+
+}
